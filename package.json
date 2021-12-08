@@ -1,0 +1,11 @@
+{
+  "name": "realm-js-builder",
+  "description": "Unified build system for Realm-JS packages",
+  "author": "Franck Franck <franck.franck@mongodb.com>",
+  "version": "0.0.1",
+  "main": "./builder.js",
+  
+  "dependencies": {
+    "blessed": "^0.1.81"
+  }
+}
