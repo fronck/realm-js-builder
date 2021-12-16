@@ -1,0 +1,51 @@
+{
+    "projects": [
+        {
+            "name":   "Main Repository",
+            "description": "Build the Realm-JS module",
+            "dependencies": [
+                "Other stuff::Build project"
+            ],
+            "actions": [
+                {
+                    "name":         "Update submodules",
+                    "cwd":          "${projectRoot}",
+                    "command":      "git",
+                    "args":         [
+                        "submodule", 
+                        "update", 
+                        "--init", 
+                        "--recursive"
+                    ]
+                },
+                {
+                    "name":         "Install dependencies",
+                    "cwd":          "${projectRoot}",
+                    "command":      "npm install",
+                    "dependencies": [
+                        "Update submodules"
+                    ]
+                },
+                {
+                    "name":         "Build project",
+                    "cwd":          "${projectRoot}",
+                    "command":      "npm run build",
+                    "dependencies": [
+                        "Install dependencies"
+                    ]
+                }
+            ]
+        },
+        {
+            "name":  "Other stuff",
+            "dependencies": [
+
+            ],
+            "actions": [
+                {
+                    "name":  "Build project"
+                }
+            ]
+        }
+    ]
+}
